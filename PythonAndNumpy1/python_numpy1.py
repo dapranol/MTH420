@@ -21,7 +21,7 @@ def sphere_volume(r):
                                                                                 
 #problem 4                                                                      
 def prob4():                                                                    
-    A = np.array([ [3, -1, 4],[1, 5, 9]] )                                      
+    A = np.array([ [3, -1, 4],[1, 5, -9]])                                      
     B = np.array([ [2, 6, -5, 3],[5, -8, 9, 7],[9, -3, -2, -3]])                
                                                                                 
     return A @ B # np.dot(A,B)                                                  
@@ -36,7 +36,6 @@ def tax_liability(income):
     Rate2 = .12                                                                 
     Rate3 = .22                                                                 
                                                                                 
-    income = float(input("enter the income"))                                   
     if income < Limit1:                                                         
         tax = (Rate1 * income)                                                  
     elif income < Limit2:                                                       
@@ -47,8 +46,9 @@ def tax_liability(income):
         tax = Rate1 * Limit1 + Rate2 * (Limit2 - Limit1) + Rate3 * (Limit3 - Limit2) * (income - Limit3)
     return tax
 
-#problem 6                                                                      
-def prob6a():                                                                   
+#problem 6
+
+def prob6b():                                                                   
     A = np.array([1, 2, 3, 4, 5, 6, 7])                                         
     B = np.array([5, 5, 5, 5, 5, 5, 5])                                         
                                                                                 
@@ -67,13 +67,12 @@ if __name__ == "__main__":
     AB = prob4()                                                                
     print(AB)                                                                   
                                                                                 
-    #problem 5                                                                  
-    income = 63000                                                              
+    #problem 5
+    income = float(input("enter income"))
     T = tax_liability(income)                                                   
     print(T)                                                                    
                                                                                 
-    #problem 6                                                                  
-    AB = prob6a()                                                               
-    print(AB)             
+    #problem 6                                                                                                                                
+    print(prob6b())             
 
 

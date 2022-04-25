@@ -1,38 +1,41 @@
 # python_intro.py
 """Python Essentials: Introduction to Python.
-<Name>
-<Class>
-<Date>
+<Lucia>
+<MTH420>
+<4/21/22>
 """
 
 #Problem 1
 def isolate(a, b, c, d, e):
-
-    raise NotImplementedError("Problem 1 Incomplete")
+    print('a', 'b', 'c', sep ='     ', end= 'd e')
+    #raise NotImplementedError("Problem 1 Incomplete")
 
 #Problem 2
 def first_half(string):
+    #raise NotImplementedError("Problem 2 Incomplete")
 
-    raise NotImplementedError("Problem 2 Incomplete")
-
+    return(string[:len(string)//2 if len(string)%2 == 0                          
+        else (((len(string)//2))+1):])
 
 def backward(first_string):
-
-    raise NotImplementedError("Problem 2 Incomplete")
+    return(string[::-1])
+    #raise NotImplementedError("Problem 2 Incomplete")
 
 #Problem 3
-def list_ops():
+def list_ops(my_list):
+    return(print(list_ops))
 
-    raise NotImplementedError("Problem 3 Incomplete")
+    #raise NotImplementedError("Problem 3 Incomplete")
 
 #Problem 4
 def alt_harmonic(n):
+    
     """Return the partial sum of the first n terms of the alternating
     harmonic series. Use this function to approximate ln(2).
     """
-    raise NotImplementedError("Problem 4 Incomplete")
+    #raise NotImplementedError("Problem 4 Incomplete")
 
-
+    return(sum([(-1)**(n+1)/n for n in range(1,500000)])) 
 
 def prob5(A):
     """Make a copy of 'A' and set all negative entries of the copy to 0.
@@ -43,8 +46,9 @@ def prob5(A):
         >>> prob4(A)
         array([0, 0, 3])
     """
-    raise NotImplementedError("Problem 5 Incomplete")
-
+    #raise NotImplementedError("Problem 5 Incomplete")
+    return(np.copy(A))
+import numpy as np
 def prob6():
     """Define the matrices A, B, and C as arrays. Return the block matrix
                                 | 0 A^T I |
@@ -53,7 +57,8 @@ def prob6():
     where I is the 3x3 identity matrix and each 0 is a matrix of all zeros
     of the appropriate size.
     """
-    raise NotImplementedError("Problem 6 Incomplete")
+    #raise NotImplementedError("Problem 6 Incomplete")
+    return(np.hstack(Matrix_1, Matrix_2, MAtrix_3))
 
 def prob7(A):
     """Divide each row of 'A' by the row sum and return the resulting array.
@@ -75,4 +80,44 @@ def prob8():
     """
     raise NotImplementedError("Problem 8 Incomplete")
 
+if __name__ == "__main__":
 
+#problem 1
+    print('a', 'b', 'c', sep ='     ', end= ' d e')
+
+#problem 2
+    string = (input("enter a word"))
+    print(first_half(string))                          
+    print(backward(first_half))
+#problem 3
+    my_list = ['bear', 'ant', 'cat', 'dog']                                       
+    my_list.append('eagle')                                                     
+    my_list[1] = 'fox'                                                
+    my_list.remove('bear')
+    my_list.sort(reverse=True)                                                
+    my_list.insert(my_list.index('eagle'),'hawk')                                              
+    my_list.append('hunter')   
+    print(my_list) 
+    
+#problem 4
+    print(sum([(-1)**(n+1)/n for n in range(1,500000)]))
+#problem 5
+    A = np.array([[3, -1, 4], [-1, 5, -9]])
+    mask = A < 0
+    A[mask] = 0
+    print(prob5(A))
+
+#problem 6
+    A = np.array([[0, 2, 4], [1, 3, 5]])
+    B = np.array([[3, 0, 0], [3, 3, 0], [3, 3, 3]])
+    C = np.diag([ -2, -2, -2 ])
+    I = np.eye(3)
+    Z_1 = (np.zeros((3, 3)))
+    Z_2 = np.zeros((2, 2))
+    Z_3 = np.zeros((2, 3))
+    Matrix_1 = np.vstack(Z_1, A, B)
+    Matrix_2 = np.vstack(A.T, Z_2, Z_3.T)
+    Matrix_3 = np.vstack(I, Z_3, C)
+    print(prob6())
+#problem 8
+    print
