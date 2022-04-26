@@ -58,7 +58,7 @@ def prob6():
     of the appropriate size.
     """
     #raise NotImplementedError("Problem 6 Incomplete")
-    return(np.hstack(Matrix_1, Matrix_2, MAtrix_3))
+    return np.hstack((Matrix_1, Matrix_2, Matrix_3))
 
 def prob7(A):
     """Divide each row of 'A' by the row sum and return the resulting array.
@@ -79,6 +79,7 @@ def prob8():
     diagonally) in the grid.
     """
     raise NotImplementedError("Problem 8 Incomplete")
+    # did not attempt
 
 if __name__ == "__main__":
 
@@ -112,12 +113,12 @@ if __name__ == "__main__":
     B = np.array([[3, 0, 0], [3, 3, 0], [3, 3, 3]])
     C = np.diag([ -2, -2, -2 ])
     I = np.eye(3)
-    Z_1 = (np.zeros((3, 3)))
+    Z_1 = np.zeros((3, 3))
     Z_2 = np.zeros((2, 2))
     Z_3 = np.zeros((2, 3))
-    Matrix_1 = np.vstack(Z_1, A, B)
-    Matrix_2 = np.vstack(A.T, Z_2, Z_3.T)
-    Matrix_3 = np.vstack(I, Z_3, C)
+    Matrix_1 = np.vstack((Z_1, A, B))
+    Matrix_2 = np.vstack((A.T, Z_2, Z_3.T))
+    Matrix_3 = np.vstack((I, Z_3, C))
     print(prob6())
 #problem 8
-    print
+    

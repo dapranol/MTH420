@@ -1,8 +1,8 @@
 # object_oriented.py
 """Python Essentials: Object Oriented Programming.
-<Name>
-<Class>
-<Date>
+<Lucia>
+<MTH420>
+<4/24/22>
 """
 
 
@@ -21,12 +21,20 @@ class Backpack:
         Parameters:
             name (str): the name of the backpack's owner.
         """
+
         self.name = name
         self.contents = []
+        self.color = []
+        self.max_size = 5
 
     def put(self, item):
         """Add an item to the backpack's list of contents."""
         self.contents.append(item)
+        if max_size > 5:
+            print("No Room!") 
+        else max_size <= 5:
+            print()
+    def dump(self)
 
     def take(self, item):
         """Remove an item from the backpack's list of contents."""
