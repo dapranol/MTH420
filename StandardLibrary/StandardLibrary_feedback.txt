@@ -1,0 +1,25 @@
+04/26/22 22:47
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+NameError: name 'int_1' is not defined
+
+Problem 3 (10 points):
+AttributeError: module 'DapranoLucia.StandardLibrary.standard_library' has no attribute 'hypot'
+
+Problem 4 (10 points):
+AttributeError: module 'DapranoLucia.StandardLibrary.standard_library' has no attribute 'power_set'
+
+Code Quality (10 points):
+NotImplementedError: power_set() not found
+
+Total score: 10/50 = 20.0%
+
+
+Comments:
+	resubmit
+
+-------------------------------------------------------------------------------
+
