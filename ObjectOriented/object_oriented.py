@@ -15,7 +15,7 @@ class Backpack:
     """
 
     # Problem 1: Modify __init__() and put(), and write dump().
-    def __init__(self, name):
+    def __init__(self, name, color, max_size = 5):
         """Set the name and initialize an empty list of contents.
 
         Parameters:
@@ -28,13 +28,16 @@ class Backpack:
         self.max_size = 5
 
     def put(self, item):
-        """Add an item to the backpack's list of contents."""
+        """Add an item to the backpack's list of contents with the parameter that the max size of the backpack is 5 items"""
         self.contents.append(item)
         if max_size > 5:
             print("No Room!") 
-        else max_size <= 5:
+        else:
             print()
-    def dump(self)
+
+    def dump(self):
+        """Remove all the items in the backpack"""
+        return self.contents.remove()
 
     def take(self, item):
         """Remove an item from the backpack's list of contents."""
@@ -100,6 +103,30 @@ class Knapsack(Backpack):
 
 
 # Problem 2: Write a 'Jetpack' class that inherits from the 'Backpack' class.
+class Jetpack(Backpack):
+    def __init__(self, name, color, max_size = 2, fuel = 10):
+        self.fuel = 10
+        """change superclass to have additional arguments"""
 
+    def fly(fuel_burned):
+        fuel_burned = input("amount of fuel to be burned")
+        if fuel_burned < fuel:
+            print ("Not enough fuel!")
+        else:
+            print (fuel - fuel_burned)
+        """ function that excepts an amount of fuel to be burned and decrements the fuel attribute by that amount"""
+    def dump(self):
+        return self.contents.remove()
+        return self.fuel.remove()
+        """empty the contents and the fuel tank"""
 
 # Problem 4: Write a 'ComplexNumber' class.
+
+if __name__ == "__main__":
+
+#problem 1
+
+    print __init__(self, name)
+    print put(self, item)
+    print def dump(self)
+    print take(self, item)
