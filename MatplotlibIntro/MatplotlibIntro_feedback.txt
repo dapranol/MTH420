@@ -1,0 +1,51 @@
+05/06/22 20:13
+
+Problem 1 (10 points):
+prob1() plot does not match specifications
+Score += 0
+
+Problem 2 (10 points):
+NameError: name 'x' is not defined
+
+Problem 3 (10 points):
+TypeError: prob3() missing 1 required positional argument: 'x'
+
+Problem 4 (5 points):
+TypeError: subplot() takes 1 or 3 positional arguments but 2 were given
+
+Problem 6 (10 points):
+NameError: name 'i' is not defined
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 5/50 = 10.0%
+
+-------------------------------------------------------------------------------
+
+05/07/22 06:52
+
+Problem 1 (10 points):
+prob1() plot does not match specifications
+Score += 0
+
+Problem 2 (10 points):
+NameError: name 'x' is not defined
+
+Problem 3 (10 points):
+TypeError: prob3() missing 1 required positional argument: 'x'
+
+Problem 4 (5 points):
+TypeError: subplot() takes 1 or 3 positional arguments but 2 were given
+
+Problem 6 (10 points):
+NameError: name 'i' is not defined
+
+Code Quality (5 points):
+Code can be improved for prob4()
+Score += 0
+
+Total score: 0/50 = 0.0%
+
+-------------------------------------------------------------------------------
+
