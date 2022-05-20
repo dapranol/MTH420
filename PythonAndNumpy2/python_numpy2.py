@@ -101,7 +101,7 @@ if __name__ == "__main__":
     print(my_list) 
     
 #problem 4
-    print(sum([(-1)**(n+1)/n for n in range(1,500000)]))
+    print(sum([((-1)**(n+1))/n for n in range(1,500000)]))
 #problem 5
     A = np.array([[3, -1, 4], [-1, 5, -9]])
     mask = A < 0
