@@ -47,7 +47,11 @@ def tax_liability(income):
     return tax
 
 #problem 6
+def prob6a():
+    A = np.array(list(range(1, 8)))
+    B = np.array(list([5, 5, 5, 5, 5, 5, 5]))
 
+    return A @ B, A + B, 5 * A
 def prob6b():                                                                   
     A = np.array([1, 2, 3, 4, 5, 6, 7])                                         
     B = np.array([5, 5, 5, 5, 5, 5, 5])                                         
@@ -68,11 +72,11 @@ if __name__ == "__main__":
     print(AB)                                                                   
                                                                                 
     #problem 5
-    income = float(input("enter income"))
-    T = tax_liability(income)                                                   
-    print(T)                                                                    
-                                                                                
-    #problem 6                                                                                                                                
+    income = 63000
+    tax_liability(income)
+
+    #problem 6
+    print(prob6a())
     print(prob6b())             
 
 

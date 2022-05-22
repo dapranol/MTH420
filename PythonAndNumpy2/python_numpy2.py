@@ -23,7 +23,14 @@ def backward(first_string):
 
 #Problem 3
 def list_ops(my_list):
-    return(print(list_ops))
+    my_list = ['bear', 'ant', 'cat', 'dog']
+    my_list.append('eagle')
+    my_list[1] = 'fox'
+    my_list.remove('bear')
+    my_list.sort(reverse=True)
+    my_list.insert(my_list.index('eagle'),'hawk')
+    my_list.append('hunter')
+    return my_list
 
     #raise NotImplementedError("Problem 3 Incomplete")
 
@@ -35,8 +42,8 @@ def alt_harmonic(n):
     """
     #raise NotImplementedError("Problem 4 Incomplete")
 
-    return(sum([(-1)**(n+1)/n for n in range(1,500000)])) 
-
+    return(sum([((-1)**(n+1))/n for n in range(1,500000)])) 
+#Problem 5
 def prob5(A):
     """Make a copy of 'A' and set all negative entries of the copy to 0.
     Return the copy.
@@ -47,8 +54,12 @@ def prob5(A):
         array([0, 0, 3])
     """
     #raise NotImplementedError("Problem 5 Incomplete")
+    mask = A < 0
+    A[mask] = 0
     return(np.copy(A))
 import numpy as np
+
+#Problem 6
 def prob6():
     """Define the matrices A, B, and C as arrays. Return the block matrix
                                 | 0 A^T I |
@@ -58,6 +69,16 @@ def prob6():
     of the appropriate size.
     """
     #raise NotImplementedError("Problem 6 Incomplete")
+    A = np.array([[0, 2, 4], [1, 3, 5]])
+    B = np.array([[3, 0, 0], [3, 3, 0], [3, 3, 3]])
+    C = np.diag([ -2, -2, -2 ])
+    I = np.eye(3)
+    Z_1 = np.zeros((3, 3))
+    Z_2 = np.zeros((2, 2))
+    Z_3 = np.zeros((2, 3))
+    Matrix_1 = np.vstack((Z_1, A, B))
+    Matrix_2 = np.vstack((A.T, Z_2, Z_3.T))
+    Matrix_3 = np.vstack((I, Z_3, C))
     return np.hstack((Matrix_1, Matrix_2, Matrix_3))
 
 def prob7(A):
@@ -78,58 +99,15 @@ def prob8():
     adjacent numbers in the same direction (up, down, left, right, or
     diagonally) in the grid.
     """
-    raise NotImplementedError("Problem 8 Incomplete")
-    # did not attempt
-
-if __name__ == "__main__":
-
-#problem 1
-    print('a', 'b', 'c', sep ='     ', end= ' d e')
-
-#problem 2
-    string = (input("enter a word"))
-    print(first_half(string))                          
-    print(backward(first_half))
-#problem 3
-    my_list = ['bear', 'ant', 'cat', 'dog']                                       
-    my_list.append('eagle')                                                     
-    my_list[1] = 'fox'                                                
-    my_list.remove('bear')
-    my_list.sort(reverse=True)                                                
-    my_list.insert(my_list.index('eagle'),'hawk')                                              
-    my_list.append('hunter')   
-    print(my_list) 
-    
-#problem 4
-    print(sum([((-1)**(n+1))/n for n in range(1,500000)]))
-#problem 5
-    A = np.array([[3, -1, 4], [-1, 5, -9]])
-    mask = A < 0
-    A[mask] = 0
-    print(prob5(A))
-
-#problem 6
-    A = np.array([[0, 2, 4], [1, 3, 5]])
-    B = np.array([[3, 0, 0], [3, 3, 0], [3, 3, 3]])
-    C = np.diag([ -2, -2, -2 ])
-    I = np.eye(3)
-    Z_1 = np.zeros((3, 3))
-    Z_2 = np.zeros((2, 2))
-    Z_3 = np.zeros((2, 3))
-    Matrix_1 = np.vstack((Z_1, A, B))
-    Matrix_2 = np.vstack((A.T, Z_2, Z_3.T))
-    Matrix_3 = np.vstack((I, Z_3, C))
-    print(prob6())
-#problem 8
-
+    #raise NotImplementedError("Problem 8 Incomplete")
     def largest_adj(m):
         def mul_max(largest, *entries):
             prod = np.prod(entries)
-            
+
             if prod > largest:
                 largest = prod
 
-            return largest 
+            return largest
 
         largest = 0
         for r in range(len(m)):
@@ -150,7 +128,30 @@ if __name__ == "__main__":
                     largest = mul_max(largest, *[m[r][c+i] for i in range(4)])
 
         return largest
-            
+
     # import the matrix called m
     m = np.load("grid.npy")
     print(largest_adj(m))
+if __name__ == "__main__":
+
+#problem 1
+    isolate(1, 2, 3, 4, 5)
+
+#problem 2
+    string = 'string'
+    print(first_half(string))                          
+    print(backward(first_half))
+#problem 3
+    my_list = ['bear', 'ant', 'cat', 'dog']
+    print (list_ops(my_list)) 
+    
+#problem 4
+    print(sum([((-1)**(n+1))/n for n in range(1,500000)]))
+#problem 5
+    A = np.array([[3, -1, 4], [-1, 5, -9]])
+    print(prob5(A))
+
+#problem 6
+    print(prob6())
+#problem 8
+    prob8()

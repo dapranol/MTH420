@@ -22,10 +22,11 @@ def var_of_means(n):
         (float) The variance of the means of each row.
     """
     #raise NotImplementedError("Problem 1 Incomplete")
+    n = 4 
     matrix = np.random.normal(size=(n,n))
 
     row_means = matrix.mean(axis=1)
-
+                                                                                
     return np.var(row_means)
 
 def prob1():
@@ -35,20 +36,27 @@ def prob1():
     #raise NotImplementedError("Problem 1 Incomplete")
 
     #return np.array(var_of_means)
-
+    n = range(100, 1000, 100)
+    var_of_means(n)
+    print (prob1())
 def prob2():
     """Plot the functions sin(x), cos(x), and arctan(x) on the domain
     [-2pi, 2pi]. Make sure the domain is refined enough to produce a figure
     with good resolution.
     """
     #raise NotImplementedError("Problem 2 Incomplete")
+
+    x = np.linspace(-2 * np.pi, 2 * np.pi, 50)
     s = np.sin(x)
     c = np.cos(x)
     t = np.arctan(x)
 
     plt.plot(x, s)
+    plt.show()
     plt.plot(x, c)
+    plt.show()
     plt.plot(x, t)
+    plt.show()
 
 # Problem 3
 def prob3(x):
@@ -60,18 +68,21 @@ def prob3(x):
     """
     #raise NotImplementedError("Problem 3 Incomplete")
 
-    f =  1/(x - 1)
+    x = np.arange(-2, 6, 0.1)
 
-    #1
-    x = np.arange(-2, 6, 0.1, [1])
+    x_1 = np.arange(-2, 1, 0.1)
+    x_2 = np.arange(1.1, 6, 0.1)
 
+    f_1 = 1/(x_1 - 1)
+    f_2 = 1/(x_2 - 1)
 
-    #2
-    plt.plot(x, f, 'm:', linewidth=4, linestyle='--')
-    
-    #3
+    plt.plot(x_1, f_1, 'm:', linestyle='--', linewidth=4)
+    plt.plot(x_2, f_2, 'm:', linestyle='--', linewidth=4)
+
     plt.xlim(-2, 6)
     plt.ylim(-6, 6)
+
+    plt.show()
 
 # Problem 4
 def prob4():
@@ -89,27 +100,34 @@ def prob4():
     """
     #raise NotImplementedError("Problem 4 Incomplete")
 
-    #define funtions
-    x = np.arange(0, 2*np.pi, 0.1)
-
-    f_1 = np.sin(x)
-    f_2 = np.sin(2*x)
-    f_3 = np.sin(x)*2
-    f_4 = np.sin(2*x)*2
-
-    #plot funtions
-    fig, axs = plt.subplot(2, 2)
-    plt.axis([0, 2*np.pi, 0, 2*np.pi])
-    plt.subtitle('trig funtions')
-
-    axs[0, 0].plot(x, f_1, 'g:', linestyle='-')
-    axs[0, 0].set_title('sin(x)')
-    axs[0, 1].plot(x, f_2, 'r:', linestyle='--')
-    axs[0, 1].set_title('sin(2x)')
-    axs[1, 0].plot(x, f_3, 'b:', linestyle='--')
-    axs[1, 0].set_title('2sin(x)')
-    axs[1, 1].plot(x, f_4, 'm:', linestyle='--')
-    axs[1, 1].set_title('2sin(2x)')
+    #define funtions                                                            
+    x = np.arange(0, 2*np.pi, 0.1)                                              
+                                                                                
+    f_1 = np.sin(x)                                                             
+    f_2 = np.sin(2*x)                                                           
+    f_3 = np.sin(x)*2                                                           
+    f_4 = np.sin(2*x)*2                                                         
+                                                                                
+    #plot funtions                                                              
+    ax1 = plt.subplot(221)                                                      
+    ax1.plot(x, f_1, 'g:', linestyle='-')                                       
+    ax1.set_title('sin(x)')                                                     
+                                                                                
+    ax2 = plt.subplot(222)                                                      
+    ax2.plot(x, f_2, 'r:', linestyle='--')                                      
+    ax2.set_title('sin(2x)')                                                    
+                                                                                
+    ax3 = plt.subplot(223)                                                      
+    ax3.plot(x, f_3, 'b:', linestyle='--')                                      
+    ax3.set_title('2sin(x)')                                                    
+                                                                                
+    ax4 = plt.subplot(224)                                                      
+    ax4.plot(x, f_4, 'm:', linestyle=':')                                       
+    ax4.set_title('2sin(2x)')                                                   
+                                                                                
+    plt.axis([0, 2*np.pi, -2, 2])                                               
+    plt.suptitle('trig funtions')                                               
+    plt.show()  
 
 
 # Problem 5
@@ -139,115 +157,39 @@ def prob6():
     #raise NotImplementedError("Problem 6 Incomplete")
     
     #define the function
-    x = np.arange(-2 * np.pi, 2 * np.pi)
-    y = np.arange(-2 * np.pi, 2 * np.pi)
-
-    def g(x, y):
-        return (np.sin(x) * np.sin(y)) / (x * y)
+    x = np.linspace(-2 * np.pi, 2 * np.pi, 100)
+    y = x.copy()
+    X, Y = np.meshgrid(x, y)
+    Z = (np.sin(X) * np.sin(Y)) / (X * Y)
 
     #define subplots
-    plt.subplot(1, 2, i)
 
     plt.subplot(121)
-    plt.pcolormesh(g(x,y), cmap="viridis")
+    plt.pcolormesh(X, Y, Z, cmap="viridis")
+    plt.colorbar()
     plt.xlim(-2 * np.pi, 2 * np.pi)
     plt.ylim(-2 * np.pi, 2 * np.pi)
 
     plt.subplot(122)
-    plt.contour(g(x, y), 10, cmap="coolwarm")
-    plt.xlim(-2 * np.pi, 2 * np.pi)                                             
-    plt.ylim(-2 * np.pi, 2 * np.pi)  
+    plt.contour(X, Y, Z, 10, cmap="coolwarm")
+    plt.colorbar()
+
+    plt.show()
 
 if __name__ == "__main__":
-    #problem 1
-    n = int(input("enter size of matrix"))
-    print (var_of_means(n))
-
-    n = range(100, 1000, 100)
-    print (prob1())
-
-
+    #Problem 1
+    n = 4
+    var_of_means(n)
     #problem 2
-    x = np.arange(-2*np.pi, 2*np.pi, 0.1)
-    s = np.sin(x)                                                               
-    c = np.cos(x)                                                               
-    t = np.arctan(x)
-    
-    plt.plot(x, s)                                                              
-    plt.show()
-    plt.plot(x, c)                                                              
-    plt.show()
-    plt.plot(x, t)       
-    plt.show()
-
+    prob2()
 
     #problem 3
-    x_1 = np.arange(-2, 1, 0.1)                                                 
-    x_2 = np.arange(1.1, 6, 0.1)
-
-    f_1 = 1/(x_1 - 1)                                                              
-    f_2 = 1/(x_2 - 1)
-
-    plt.plot(x_1, f_1, 'm:', linestyle='--', linewidth=4)
-    plt.plot(x_2, f_2, 'm:', linestyle='--', linewidth=4)
-
-    plt.xlim(-2, 6)
-    plt.ylim(-6, 6)
-
-    plt.show()
-
+    x = np.arange(-2, 6, 0.1)
+    prob3(x)
 
     #problem 4
-    #define funtions                                                            
-    x = np.arange(0, 2*np.pi, 0.1)                                              
-                                                                                
-    f_1 = np.sin(x)                                                             
-    f_2 = np.sin(2*x)                                                           
-    f_3 = np.sin(x)*2                                                           
-    f_4 = np.sin(2*x)*2                                                         
-                                                                                
-    #plot funtions           
-    ax1 = plt.subplot(221)
-    ax1.plot(x, f_1, 'g:', linestyle='-')
-    ax1.set_title('sin(x)')
+    prob4()
 
-    ax2 = plt.subplot(222)
-    ax2.plot(x, f_2, 'r:', linestyle='--')
-    ax2.set_title('sin(2x)')
-
-    ax3 = plt.subplot(223)
-    ax3.plot(x, f_3, 'b:', linestyle='--') 
-    ax3.set_title('2sin(x)')
-
-    ax4 = plt.subplot(224)
-    ax4.plot(x, f_4, 'm:', linestyle=':')
-    ax4.set_title('2sin(2x)')
-
-    plt.axis([0, 2*np.pi, -2, 2])                                          
-    plt.suptitle('trig funtions')                                               
-    plt.show()
 
     #problem 6
-    #define the function                                                        
-    x = np.arange(-2 * np.pi, 2 * np.pi)                                        
-    y = np.arange(-2 * np.pi, 2 * np.pi)                                        
-    X, Y = np.meshgrid(x, y)
-
-    f = (np.sin(X) * np.sin(Y)) / (X * Y)                                
-                                                                                
-    #define subplots                                                            
-                                                                                
-    plt.subplot(121)                                                            
-    plt.pcolormesh(X, Y, f, cmap="viridis")                                      
-    plt.xlim(-2 * np.pi, 2 * np.pi)                                             
-    plt.ylim(-2 * np.pi, 2 * np.pi)                                             
-    plt.colorbar()
-
-    plt.subplot(122)                                                            
-    plt.contour(X, Y, f, 10, cmap="coolwarm")                                   
-    plt.xlim(-2 * np.pi, 2 * np.pi)                                             
-    plt.ylim(-2 * np.pi, 2 * np.pi)
-    plt.colorbar()
-
-    plt.show()
-
+    prob6()

@@ -7,6 +7,7 @@
 
 import numpy as np
 from scipy import linalg as la
+from scipy.sparse import csgraph
 
 
 # Helper function for problems 1 and 2.
@@ -53,13 +54,12 @@ def is_drazin(A, Ad, k):
     #raise NotImplementedError("Problem 1 Incomplete")
 
     n = 4
-    #A = np.random.normal(size=(n, n))
-    A = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
-    Ad = np.array([[1, -3, 9, 81], [0, 1, -3, -18], [0, 0, 1, 3], [0, 0, 0, 0]])
+    A = np.random.normal(size=(n, n))
+    A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
 
-    #Ad = np.random.normal(size=(n, n))
+    Ad = np.random.normal(size=(n, n))
 
-    k = 1
+    k = index(A)
 
     if (A * Ad == Ad * A, np.linalg.matrix_power(A, k + 1) * Ad == np.linalg.matrix_power(A, k), Ad * A * Ad == Ad):
         print ("True")
@@ -80,23 +80,22 @@ def drazin_inverse(A, tol=1e-4):
     n = len(A)
 
     A = np.random.normal(size=(n, n))
-    A.shape = (n, n)
 
     T_1, Q_1, k_1 = la.schur(A, sort=lambda x: abs(x) > tol)
     T_2, Q_2, k_2 = la.schur(A, sort= lambda x: abs(x) <= tol)
 
     #create change of basis matrix 'U'
-    U = np.vstack((Q_1[:, :k_1], Q_2[:, :n - k_1]))
+    U = np.hstack((Q_1[:, :k_1], Q_2[:, :n - k_1]))
 
     U_i = np.linalg.inv(U)
-    V = U_i * A * U
+    V = U_i @ A @ U
 
     Z = np.zeros(n)
 
     if k_1 != 0:
-        np.linalg.inv(V) == np.linalg.inv(M)
-        np.linalg.inv(M) == Z
-    return U * Z * U_i
+        M_i = np.linalg.inv((V[:k_1, :k_1]))
+        Z = M_i
+    return U @ Z @ U_i
 
 # Problem 3
 def effective_resistance(A):
@@ -109,8 +108,15 @@ def effective_resistance(A):
         ((n,n) ndarray) The matrix where the ijth entry is the effective
         resistance from node i to node j.
     """
-    raise NotImplementedError("Problem 3 Incomplete")
+    #raise NotImplementedError("Problem 3 Incomplete")
+    
+    A = #adjency matrix
 
+    if i != j:
+        L[i, i]
+    else i = j
+        0
+    return R[i, j]
 if __name__=="__main__":
 #Problem 1
     A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
@@ -127,4 +133,8 @@ if __name__=="__main__":
 
     A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
 
-    drazin_inverse(A_t, tol=1e-4)
+    print (drazin_inverse(A_t, tol=1e-4))
+
+#Problem 3
+    A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
+    effective_resistance(A_t)
