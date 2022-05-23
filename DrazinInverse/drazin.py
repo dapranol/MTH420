@@ -7,7 +7,6 @@
 
 import numpy as np
 from scipy import linalg as la
-from scipy.sparse import csgraph
 
 
 # Helper function for problems 1 and 2.
@@ -59,7 +58,7 @@ def is_drazin(A, Ad, k):
 
     Ad = np.random.normal(size=(n, n))
 
-    k = index(A)
+    k = index(A, tol=1e-5)
 
     if (A * Ad == Ad * A, np.linalg.matrix_power(A, k + 1) * Ad == np.linalg.matrix_power(A, k), Ad * A * Ad == Ad):
         print ("True")
@@ -77,27 +76,36 @@ def drazin_inverse(A, tol=1e-4):
        ((n,n) ndarray) The Drazin inverse of A.
     """
     #raise NotImplementedError("Problem 2 Incomplete")
-    n = len(A)
-
-    A = np.random.normal(size=(n, n))
 
     T_1, Q_1, k_1 = la.schur(A, sort=lambda x: abs(x) > tol)
     T_2, Q_2, k_2 = la.schur(A, sort= lambda x: abs(x) <= tol)
 
     #create change of basis matrix 'U'
-    U = np.hstack((Q_1[:, :k_1], Q_2[:, :n - k_1]))
+    U = np.hstack((Q_1[:, :k_1], Q_2[:, :len(Q_2) - k_1]))
 
-    U_i = np.linalg.inv(U)
-    V = U_i @ A @ U
+    U_i = la.inv(U)
+    V = np.dot(U_i, np.dot(A, U))
 
-    Z = np.zeros(n)
+    Z = np.zeros_like(A, dtype=float)
 
     if k_1 != 0:
-        M_i = np.linalg.inv((V[:k_1, :k_1]))
-        Z = M_i
-    return U @ Z @ U_i
+        M_i = la.inv(V[:k_1, :k_1])
+        Z[:k_1, :k_1] = M_i
+    return np.real(np.dot(U, np.dot(Z, U_i)))
 
-# Problem 3
+def laplacian(A):
+    """Compute the Laplacian matrix of the adjacency matrix A,
+    as well as the second smallest eigenvalue.
+
+    Parameters:
+        A ((n,n) ndarray) adjacency matrix for an undirected weighted graph.
+
+    Returns:
+        L ((n,n) ndarray): the Laplacian matrix of A
+    """
+    D = A.sum(axis=1)    # The degree of each vertex (either axis).
+    return np.diag(D) - A
+
 def effective_resistance(A):
     """Compute the effective resistance for each node in a graph.
 
@@ -109,19 +117,29 @@ def effective_resistance(A):
         resistance from node i to node j.
     """
     #raise NotImplementedError("Problem 3 Incomplete")
-    
-    A = #adjency matrix
 
-    if i != j:
-        L[i, i]
-    else i = j
-        0
-    return R[i, j]
+    n = len(A)
+    L = laplacian(A)
+    ER = np.zeros_like(A,dtype = float)
+    L_tilda = np.copy(L)
+    I = np.eye(n)
+
+    for j in range(n):
+        L_tilda = np.copy(L)
+        L_tilda[j, :] = I[j, :]
+        D = drazin_inverse(L_tilda)
+        ER[:, j] = np.diag(D)
+
+    return ER - I
+
+
 if __name__=="__main__":
 #Problem 1
     A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
     Ad_t = np.array([[1, -3, 9, 81], [0, 1, -3, -18], [0, 0, 1, 3], [0, 0, 0, 0]])
     k_A = 1
+
+    is_drazin(A_t, Ad_t, k_A)
 
     B_t = np.array([[1, 1, 3], [5, 2, 6], [-2, -1, -3]])
     Bd_t = np.array([[0, 0, 0], [0, 0, 0], [0, 0, 0]])                                                                     
@@ -132,9 +150,12 @@ if __name__=="__main__":
 #Problem 2
 
     A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
+    B_t = np.array([[1, 1, 3], [5, 2, 6], [-2, -1, -3]])
 
     print (drazin_inverse(A_t, tol=1e-4))
+    print (drazin_inverse(B_t, tol=1e-4))
 
-#Problem 3
-    A_t = np.array([[1, 3, 0, 0], [0, 1, 3, 0], [0, 0, 1, 3], [0, 0, 0, 0]])
-    effective_resistance(A_t)
+#Problem 3 
+    A = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
+    laplacian(A)
+    print (effective_resistance(A))
