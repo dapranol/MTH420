@@ -49,3 +49,28 @@ Total score: 0/50 = 0.0%
 
 -------------------------------------------------------------------------------
 
+05/27/22 17:46
+
+Problem 1 (10 points):
+RecursionError: maximum recursion depth exceeded in comparison
+
+Problem 2 (10 points):
+should be plotted on the same axis
+Score += 8
+
+Problem 3 (10 points):
+TypeError: prob3() missing 1 required positional argument: 'x'
+
+Problem 4 (5 points):
+Score += 5
+
+Problem 6 (10 points):
+Score += 10
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 28/50 = 56.0%
+
+-------------------------------------------------------------------------------
+
