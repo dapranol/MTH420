@@ -38,3 +38,34 @@ Total score: 18/50 = 36.0%
 
 -------------------------------------------------------------------------------
 
+05/27/22 17:21
+
+Problem 1 (10 points):
+isolate() failed
+Score += 9
+
+Problem 2 (10 points):
+NameError: name 'string' is not defined
+
+Problem 3 (10 points):
+TypeError: list_ops() missing 1 required positional argument: 'my_list'
+
+Problem 4 (5 points):
+alt_harmonic(100) failed
+	Correct response: 0.688172179310195
+	Student response: 0.6931481805610046
+Score += 3
+
+Problem 5 (5 points):
+Score += 5
+
+Problem 6 (5 points):
+Score += 5
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 27/50 = 54.0%
+
+-------------------------------------------------------------------------------
+
