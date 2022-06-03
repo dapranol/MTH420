@@ -22,12 +22,10 @@ def var_of_means(n):
         (float) The variance of the means of each row.
     """
     #raise NotImplementedError("Problem 1 Incomplete")
-    n = 4 
-    matrix = np.random.normal(size=(n,n))
 
-    row_means = matrix.mean(axis=1)
-                                                                                
-    return np.var(row_means)
+    matrix = np.array(np.random.normal(size=(n,n)))
+    means = np.array(matrix.mean(axis = 1))
+    return np.var(means)
 
 def prob1():
     """Create an array of the results of var_of_means() with inputs
@@ -36,9 +34,16 @@ def prob1():
     #raise NotImplementedError("Problem 1 Incomplete")
 
     #return np.array(var_of_means)
-    n = range(100, 1000, 100)
-    var_of_means(n)
-    print (prob1())
+    
+    ar = []
+    for i in range (100, 1100, 100):
+        var = var_of_means(i)
+        ar.append(var)
+        var_ar = np.array(ar)
+        plt.plot(var_ar)
+    plt.show()
+    print(var_ar)
+
 def prob2():
     """Plot the functions sin(x), cos(x), and arctan(x) on the domain
     [-2pi, 2pi]. Make sure the domain is refined enough to produce a figure
@@ -46,20 +51,15 @@ def prob2():
     """
     #raise NotImplementedError("Problem 2 Incomplete")
 
-    x = np.linspace(-2 * np.pi, 2 * np.pi, 50)
-    s = np.sin(x)
-    c = np.cos(x)
-    t = np.arctan(x)
-
-    plt.plot(x, s)
+    x = np.linspace(-2*np.pi, 2*np.pi, 100)
+    c = plt.plot(x, np.cos(x))
+    s = plt.plot(x, np.sin(x))
+    t = plt.plot(x, np.arctan(x))
     plt.show()
-    plt.plot(x, c)
-    plt.show()
-    plt.plot(x, t)
-    plt.show()
+    print(c, s, t)
 
 # Problem 3
-def prob3(x):
+def prob3():
     """Plot the curve f(x) = 1/(x-1) on the domain [-2,6].
         1. Split the domain so that the curve looks discontinuous.
         2. Plot both curves with a thick, dashed magenta line.
@@ -68,7 +68,6 @@ def prob3(x):
     """
     #raise NotImplementedError("Problem 3 Incomplete")
 
-    x = np.arange(-2, 6, 0.1)
 
     x_1 = np.arange(-2, 1, 0.1)
     x_2 = np.arange(1.1, 6, 0.1)
@@ -180,12 +179,12 @@ if __name__ == "__main__":
     #Problem 1
     n = 4
     var_of_means(n)
+    prob1()
     #problem 2
     prob2()
 
     #problem 3
-    x = np.arange(-2, 6, 0.1)
-    prob3(x)
+    prob3()
 
     #problem 4
     prob4()

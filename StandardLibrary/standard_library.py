@@ -23,33 +23,33 @@ def prob2():
     int_1 = {1: 1, 2: 2}                                                        
     int_2 = int_1                                                               
     int_2[1] = 4                                                                
-    print(int_1 == int_2)                                                       
+    print('numbers:', int_1 == int_2)                                                       
         #integral is mutable                                                    
     str_1 = "Python is cool"                                                    
     str_2 = str_1                                                               
     str_2 = "C"                                                                 
-    print(str_1 == str_2)                                                       
+    print('strings:', str_1 == str_2)                                                       
         #string is mutable                                                      
     list_1 = ["rock", "paper", "scissors"]                                      
     list_2 = list_1                                                             
     list_2[2] = "fire"                                                          
-    print(list_1 == list_2)                                                     
+    print('lists:', list_1 == list_2)                                                     
         #list is mutable                                                        
     tuple_1 = [1, 'a', 7, 'birthdays']                                          
     tuple_2 = tuple_1                                                           
     tuple_2 = (3, 4, 5)                                                         
-    print(tuple_1 == tuple_2)                                                   
+    print('tuples:', tuple_1 == tuple_2)                                                   
         #tuple is mutable                                                       
     set_1 = [5, 6, 8]                                                           
     set_2 = set_1                                                               
     set_2 = [4, 5, 6]                                                           
-    print(set_1 == set_2)                                                       
+    print('sets:', set_1 == set_2)                                                       
         #set is mutable
 
 # Problem 3
 import calculator as calc
 import math
-def hypotenuse(a, b):
+def hypot(a, b):
     """Calculate and return the length of the hypotenuse of a right triangle.
     Do not use any functions other than sum(), product() and sqrt that are 
     imported from your 'calculator' module.
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     #problem 3
     a = 3
     b = 4
-    print (hypotenuse(a, b))
+    print (hypot(a, b))
 
     #problem 4
     At = list({1, 2, 3})

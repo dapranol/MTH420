@@ -7,7 +7,9 @@
 
 #Problem 1
 def isolate(a, b, c, d, e):
-    print('a', 'b', 'c', sep ='     ', end= 'd e')
+    print(a, b, c, sep ='     ', end= '  ')
+    print(d, e)
+
     #raise NotImplementedError("Problem 1 Incomplete")
 
 #Problem 2
@@ -17,7 +19,7 @@ def first_half(string):
     return(string[:len(string)//2 if len(string)%2 == 0                          
         else (((len(string)//2))+1):])
 
-def backward(first_string):
+def backward(string):
     return(string[::-1])
     #raise NotImplementedError("Problem 2 Incomplete")
 
@@ -140,7 +142,7 @@ if __name__ == "__main__":
 #problem 2
     string = 'string'
     print(first_half(string))                          
-    print(backward(first_half))
+    print(backward(string))
 #problem 3
     my_list = ['bear', 'ant', 'cat', 'dog']
     print (list_ops(my_list)) 
