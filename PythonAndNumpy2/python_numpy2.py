@@ -7,7 +7,7 @@
 
 #Problem 1
 def isolate(a, b, c, d, e):
-    print(a, b, c, sep ='     ', end= '  ')
+    print(a, b, c, sep ='     ', end= ' ')
     print(d, e)
 
     #raise NotImplementedError("Problem 1 Incomplete")
@@ -24,7 +24,7 @@ def backward(string):
     #raise NotImplementedError("Problem 2 Incomplete")
 
 #Problem 3
-def list_ops(my_list):
+def list_ops():
     my_list = ['bear', 'ant', 'cat', 'dog']
     my_list.append('eagle')
     my_list[1] = 'fox'
@@ -44,7 +44,7 @@ def alt_harmonic(n):
     """
     #raise NotImplementedError("Problem 4 Incomplete")
 
-    return(sum([((-1)**(n+1))/n for n in range(1,500000)])) 
+    return(sum([((-1)**(i+1))/float(i) for i in range(1,n+1)])) 
 #Problem 5
 def prob5(A):
     """Make a copy of 'A' and set all negative entries of the copy to 0.
@@ -145,10 +145,11 @@ if __name__ == "__main__":
     print(backward(string))
 #problem 3
     my_list = ['bear', 'ant', 'cat', 'dog']
-    print (list_ops(my_list)) 
+    print (list_ops()) 
     
 #problem 4
-    print(sum([((-1)**(n+1))/n for n in range(1,500000)]))
+    n = 100
+    print(alt_harmonic(n))
 #problem 5
     A = np.array([[3, -1, 4], [-1, 5, -9]])
     print(prob5(A))
