@@ -75,7 +75,12 @@ def hypot(a, b):
 from itertools import combinations, permutations, chain
 
 def power_set(A):
-    return list(chain.from_iterable(combinations(A, r) for r in range(len(A) + 1)))
+    P = []
+    for r in range(len(A) + 1):
+        for combo in combinations(A, r):
+            P.append(set(combo))
+    return P
+
     #raise NotImplementedError("Problem 4 Incomplete")
 
 
