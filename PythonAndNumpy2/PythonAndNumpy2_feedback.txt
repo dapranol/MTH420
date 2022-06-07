@@ -69,3 +69,110 @@ Total score: 27/50 = 54.0%
 
 -------------------------------------------------------------------------------
 
+06/03/22 18:11
+
+Problem 1 (10 points):
+isolate() failed
+Score += 0
+
+Problem 2 (10 points):
+NameError: name 'string' is not defined
+
+Problem 3 (10 points):
+TypeError: list_ops() missing 1 required positional argument: 'my_list'
+
+Problem 4 (5 points):
+alt_harmonic(100) failed
+	Correct response: 0.688172179310195
+	Student response: 0.6931481805610046
+Score += 3
+
+Problem 5 (5 points):
+Score += 5
+
+Problem 6 (5 points):
+Score += 5
+
+Code Quality (5 points):
+Code can be improved for isolate()
+Score += 0
+
+Total score: 13/50 = 26.0%
+
+-------------------------------------------------------------------------------
+
+06/03/22 18:18
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+first_half('abcde') failed
+	Correct response: 'ab'
+	Student response: 'abc'
+first_half('TK421') failed
+	Correct response: 'TK'
+	Student response: 'TK4'
+Score += 5
+
+Problem 3 (10 points):
+TypeError: list_ops() missing 1 required positional argument: 'my_list'
+
+Problem 4 (5 points):
+alt_harmonic(100) failed
+	Correct response: 0.688172179310195
+	Student response: 0.6931481805610046
+Score += 3
+
+Problem 5 (5 points):
+Score += 5
+
+Problem 6 (5 points):
+Score += 5
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 33/50 = 66.0%
+
+-------------------------------------------------------------------------------
+
+06/07/22 18:27
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+first_half('abcde') failed
+	Correct response: 'ab'
+	Student response: 'abc'
+first_half('TK421') failed
+	Correct response: 'TK'
+	Student response: 'TK4'
+Score += 5
+
+Problem 3 (10 points):
+list_ops() failed
+	Correct response: "['fox', 'hawk', 'dog', 'bearhunter']"
+	Student response: "['fox', 'hawk', 'eagle', 'dog', 'cat', 'hunter']"
+Score += 0
+
+Problem 4 (5 points):
+Score += 5
+
+Problem 5 (5 points):
+Score += 5
+
+Problem 6 (5 points):
+Score += 5
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 35/50 = 70.0%
+
+
+Comments:
+
+-------------------------------------------------------------------------------
+
