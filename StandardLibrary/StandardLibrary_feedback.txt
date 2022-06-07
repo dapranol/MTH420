@@ -53,3 +53,56 @@ Total score: 26/50 = 52.0%
 
 -------------------------------------------------------------------------------
 
+06/07/22 18:44
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+Incorrect response(s)
+(Hint: 3 are immutable and 2 are mutable)
+Score += 6
+
+Problem 3 (10 points):
+Score += 10
+
+Problem 4 (10 points):
+Score += 10
+
+Code Quality (10 points):
+regrade
+Score += 5
+
+Total score: 41/50 = 82.0%
+
+
+Comments:
+	regrade
+
+-------------------------------------------------------------------------------
+
+06/07/22 18:46
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+Incorrect response(s)
+(Hint: 3 are immutable and 2 are mutable)
+Score += 6
+
+Problem 3 (10 points):
+Score += 10
+
+Problem 4 (10 points):
+Score += 10
+
+Code Quality (10 points):
+Score += 10
+
+Total score: 46/50 = 92.0%
+
+Great job!
+
+-------------------------------------------------------------------------------
+
