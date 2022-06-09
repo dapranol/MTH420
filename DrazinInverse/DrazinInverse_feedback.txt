@@ -1,0 +1,18 @@
+06/09/22 19:56
+
+Problem 1 (10 points):
+TypeError: Invalid return type 'NoneType'
+
+Problem 2 (10 points):
+Score += 10
+
+Problem 3 (10 points):
+Score += 10
+
+Code Quality (20 points):
+Score += 20
+
+Total score: 40/50 = 80.0%
+
+-------------------------------------------------------------------------------
+
