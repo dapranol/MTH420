@@ -1,0 +1,24 @@
+06/09/22 20:10
+
+Problem 1 (5 points):
+TypeError: cannot unpack non-iterable NoneType object
+
+Problem 2 (5 points):
+TypeError: cannot unpack non-iterable NoneType object
+
+Problem 3 (5 points):
+TypeError: cannot unpack non-iterable NoneType object
+
+Problem 4 (5 points):
+TypeError: cannot unpack non-iterable NoneType object
+
+Problem 5 (10 points):
+TypeError: cannot unpack non-iterable NoneType object
+
+Code Quality (20 points):
+Score += 20
+
+Total score: 20/50 = 40.0%
+
+-------------------------------------------------------------------------------
+
